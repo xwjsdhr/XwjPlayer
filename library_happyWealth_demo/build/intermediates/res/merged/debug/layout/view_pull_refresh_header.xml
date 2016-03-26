@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/pull_to_refresh_header"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical"
+    android:background="@android:color/transparent"
+    android:gravity="center_vertical"
+    android:paddingBottom="5dip"
+    android:paddingTop="5dip" >
+
+    <ProgressBar
+        android:id="@+id/pull_to_refresh_progress"
+        style="?android:attr/progressBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="30dip"
+        android:layout_marginRight="20dip"
+        android:indeterminate="false"
+        android:indeterminateBehavior="repeat"
+        android:indeterminateDrawable="@drawable/circle_progress_bar_loading"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/pull_to_refresh_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="30dip"
+        android:layout_marginRight="20dip"
+        android:gravity="center"
+        android:src="@drawable/ic_pulltorefresh_arrow"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/pull_to_refresh_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="下拉刷新"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/pull_to_refresh_updated_at"
+        android:layout_width="fill_parent"
+        android:layout_height="30dip"
+        android:layout_below="@+id/pull_to_refresh_text"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:visibility="gone" />
+
+    <!--
+         <TextView
+        android:id="@+id/pull_to_refresh_updated_at"
+        android:layout_width="fill_parent"
+        android:layout_height="30dip"
+        android:layout_below="@+id/pull_to_refresh_text"
+        android:text="正在使用历史数据"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        />
+    -->
+
+</RelativeLayout>

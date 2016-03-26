@@ -1,0 +1,58 @@
+[
+    {
+        "merged": "/Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/build/intermediates/res/merged/debug/anim/shake.xml",
+        "source": "/Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/src/main/res/anim/shake.xml"
+    },
+    {
+        "merged": "/Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/build/intermediates/res/merged/debug/anim/translate_down.xml",
+        "source": "/Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/src/main/res/anim/translate_down.xml"
+    },
+    {
+        "merged": "/Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/build/intermediates/res/merged/debug/anim/fade_out.xml",
+        "source": "/Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/src/main/res/anim/fade_out.xml"
+    },
+    {
+        "merged": "/Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/build/intermediates/res/merged/debug/anim/fade_in.xml",
+        "source": "/Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/src/main/res/anim/fade_in.xml"
+    },
+    {
+        "merged": "/Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/build/intermediates/res/merged/debug/anim/dialog_in_anim.xml",
+        "source": "/Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/src/main/res/anim/dialog_in_anim.xml"
+    },
+    {
+        "merged": "/Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/build/intermediates/res/merged/debug/anim/translate_down_current.xml",
+        "source": "/Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/src/main/res/anim/translate_down_current.xml"
+    },
+    {
+        "merged": "/Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/build/intermediates/res/merged/debug/anim/translate_up.xml",
+        "source": "/Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/src/main/res/anim/translate_up.xml"
+    },
+    {
+        "merged": "/Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/build/intermediates/res/merged/debug/anim/translate_up_current.xml",
+        "source": "/Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/src/main/res/anim/translate_up_current.xml"
+    },
+    {
+        "merged": "/Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/build/intermediates/res/merged/debug/anim/pb_default.xml",
+        "source": "/Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/src/main/res/anim/pb_default.xml"
+    },
+    {
+        "merged": "/Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/build/intermediates/res/merged/debug/anim/slide_out_bottom.xml",
+        "source": "/Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/src/main/res/anim/slide_out_bottom.xml"
+    },
+    {
+        "merged": "/Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/build/intermediates/res/merged/debug/anim/slide_from_bottom.xml",
+        "source": "/Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/src/main/res/anim/slide_from_bottom.xml"
+    },
+    {
+        "merged": "/Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/build/intermediates/res/merged/debug/anim/activity_alpha_action_in.xml",
+        "source": "/Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/src/main/res/anim/activity_alpha_action_in.xml"
+    },
+    {
+        "merged": "/Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/build/intermediates/res/merged/debug/anim/dialog_out_anim.xml",
+        "source": "/Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/src/main/res/anim/dialog_out_anim.xml"
+    },
+    {
+        "merged": "/Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/build/intermediates/res/merged/debug/anim/cycle_7.xml",
+        "source": "/Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/src/main/res/anim/cycle_7.xml"
+    }
+]

@@ -1,0 +1,25 @@
+<!-- <?xml version="1.0" encoding="utf-8"?>
+<animated-rotate
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/default_ptr_rotate"
+    android:pivotX="50%"
+    android:pivotY="50%"
+    android:fromDegrees="0.0"
+    android:toDegrees="360.0"
+     android:duration="2000"
+    android:interpolator="@android:anim/linear_interpolator"
+    /> -->
+
+     <layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item>
+        <rotate
+            android:fromDegrees="0.0"
+            android:drawable="@drawable/default_ptr_rotate"
+            android:pivotX="50.0%"
+            android:pivotY="50.0%"
+            android:interpolator="@android:anim/linear_interpolator"
+            android:toDegrees="2500" />
+    </item>
+
+</layer-list> 

@@ -1,0 +1,33 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/src/main/AndroidManifest.xml:1:1-15:12
+	package
+		ADDED from /Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/src/main/AndroidManifest.xml:2:5-28
+		INJECTED from /Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/src/main/AndroidManifest.xml
+		INJECTED from /Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/src/main/AndroidManifest.xml
+	android:versionName
+		ADDED from /Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/src/main/AndroidManifest.xml:4:5-30
+		INJECTED from /Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/src/main/AndroidManifest.xml
+		INJECTED from /Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/src/main/AndroidManifest.xml
+	android:versionCode
+		ADDED from /Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/src/main/AndroidManifest.xml:3:5-28
+		INJECTED from /Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/src/main/AndroidManifest.xml
+		INJECTED from /Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/src/main/AndroidManifest.xml:1:11-69
+uses-sdk
+ADDED from /Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/src/main/AndroidManifest.xml:6:6-8:41
+MERGED from [com.android.support:support-v4:23.2.0] /Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.0/AndroidManifest.xml:20:5-43
+	android:targetSdkVersion
+		ADDED from /Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/src/main/AndroidManifest.xml:8:9-38
+		INJECTED from /Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/src/main/AndroidManifest.xml
+		INJECTED from /Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from /Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/src/main/AndroidManifest.xml:7:9-35
+		INJECTED from /Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/src/main/AndroidManifest.xml
+		INJECTED from /Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/src/main/AndroidManifest.xml
+application
+ADDED from /Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/src/main/AndroidManifest.xml:10:5-13:19
+MERGED from [com.android.support:support-v4:23.2.0] /Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.0/AndroidManifest.xml:22:5-20
+	android:allowBackup
+		ADDED from /Users/xiaweijia/Desktop/XwjPlayer/library_happyWealth_demo/src/main/AndroidManifest.xml:11:9-35

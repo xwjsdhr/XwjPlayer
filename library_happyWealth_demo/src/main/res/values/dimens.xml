@@ -1,0 +1,42 @@
+<resources>
+    
+    <!-- font sizes -->
+    <dimen name="font_larger">22sp</dimen>
+    <dimen name="font_large">18sp</dimen>
+    <dimen name="font_normal">14sp</dimen>
+    <dimen name="font_small">12sp</dimen>
+
+    <!-- typical spacing between two views -->
+    <dimen name="spacing_huge">16dp</dimen>
+    <dimen name="spacing_large">12dp</dimen>
+    <dimen name="spacing_normal">8dp</dimen>
+    <dimen name="spacing_small">4dp</dimen>
+    <dimen name="spacing_tiny">2dp</dimen>
+
+    <!-- typical sizes of views -->
+    <dimen name="button_height_tall">48dp</dimen>
+    <dimen name="button_height_normal">40dp</dimen>
+    <dimen name="button_height_short">32dp</dimen>
+
+    <!-- Album相关 -->
+    <dimen name="albumitem_height">100dp</dimen>
+    <dimen name="albumitem_content_height">80dp</dimen>
+    <dimen name="albumitem_image_height">20dp</dimen>
+
+    <!-- CheckBox相关 -->
+    <dimen name="checkbox_height">18dp</dimen>
+
+    <!-- Title 相关高度 -->
+    <dimen name="layout_title_heigh">48dp</dimen>
+    <dimen name="layout_title_content_heigh">32dp</dimen>
+    <dimen name="layout_title_mini_textsize">16sp</dimen>
+    
+    <!-- 图片选择界面Item相关 -->
+    <dimen name="sticky_item_horizontalSpacing">2dp</dimen>
+    <dimen name="sticky_item_verticalSpacing">2dp</dimen>
+    <dimen name="collection_photo_toolbar_height">48dp</dimen>
+    
+     <!-- SegmentedGroup -->
+    <dimen name="radio_button_conner_radius">5dp</dimen>
+    <dimen name="radio_button_stroke_border">1dp</dimen>
+</resources>

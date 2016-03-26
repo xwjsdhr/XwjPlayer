@@ -1,0 +1,107 @@
+<com.hw.common.ui.BounceScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="none" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/dialog_background" >
+
+            <LinearLayout
+                android:id="@+id/dialog_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:orientation="vertical"
+                android:paddingTop="0.5dp" >
+
+                <TextView
+                    android:id="@+id/tv_dialog_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="left|center_vertical"
+                    android:minHeight="48dp"
+                    android:text="温馨提示"
+                    android:textColor="#3CAFE6"
+                    android:textSize="18sp"
+                    android:paddingLeft="16dp"
+                    />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#3CAFE6" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/dialog_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/dialog_title"
+                android:paddingLeft="16dp"
+                android:gravity="center_vertical"
+                android:minHeight="64dp" >
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/dialog_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/dialog_content"
+                android:orientation="vertical" >
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_line" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:divider="@drawable/divider_line_dialog_v"
+                    android:showDividers="middle"
+                    android:orientation="horizontal" >
+
+                    <Button
+                        android:id="@+id/b_left"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/dialog_btn_default"
+                        android:text="取消"
+                        android:textColor="@color/beautiful_black"
+                        android:textSize="16sp" />
+                    <Button
+                        android:id="@+id/b_middle"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/dialog_btn_default"
+                        android:textColor="@color/beautiful_black"
+                        android:textSize="16sp" />
+                    <Button
+                        android:id="@+id/b_right"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/dialog_btn_default"
+                        android:text="确定"
+                        android:textColor="@color/beautiful_black"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+</com.hw.common.ui.BounceScrollView>

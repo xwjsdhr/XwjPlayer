@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <!--
+         <ProgressBar
+        android:id="@+id/loading_progressBar"
+        style="?android:attr/progressBarStyleSmall"
+        android:layout_width="32dp"
+        android:layout_height="32dp" />
+    -->
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_loading_progressbar"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingBottom="20dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:paddingTop="20dp" >
+        
+         <ProgressBar
+                style="?android:attr/progressBarStyleSmall"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_centerInParent="true"
+                android:indeterminate="false"
+                android:indeterminateBehavior="repeat"
+                android:indeterminateDuration="1000"
+                android:indeterminateDrawable="@drawable/loading_progressbar" /> 
+
+       <!--  <com.hw.common.ui.progressbar.CircularProgressBar
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center_horizontal"
+            app:cpb_color="#70ffffff"
+            app:cpb_max_sweep_angle="@integer/cpb_default_max_sweep_angle"
+            app:cpb_min_sweep_angle="@integer/cpb_default_min_sweep_angle"
+            app:cpb_rotation_speed="@string/cpb_default_rotation_speed"
+            app:cpb_stroke_width="@dimen/cpb_default_stroke_width"
+            app:cpb_sweep_speed="@string/cpb_default_sweep_speed" /> -->
+
+        <TextView
+            android:id="@+id/loading_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="加载中..."
+            android:textColor="#70ffffff"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+</LinearLayout>
