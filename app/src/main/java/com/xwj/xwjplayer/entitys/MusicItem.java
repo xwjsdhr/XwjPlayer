@@ -14,23 +14,9 @@ public class MusicItem implements Serializable {
     private String artist;
     private long duration;
     private long size;
-    private Uri albumPath;
-    private Long albumId;
+    private Boolean isPlaying = false;
 
-    public Long getAlbumId() {
-        return albumId;
-    }
-
-    public void setAlbumId(Long albumId) {
-        this.albumId = albumId;
-    }
-
-    public Uri getAlbumPath() {
-        return albumPath;
-    }
-
-    public void setAlbumPath(Uri albumPath) {
-        this.albumPath = albumPath;
+    public MusicItem() {
     }
 
     public long getDuration() {
@@ -73,5 +59,11 @@ public class MusicItem implements Serializable {
         this.artist = artist;
     }
 
+    public Boolean getPlaying() {
+        return isPlaying;
+    }
 
+    public void setPlaying(Boolean playing) {
+        isPlaying = playing;
+    }
 }

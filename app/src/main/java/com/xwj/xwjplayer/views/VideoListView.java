@@ -12,4 +12,6 @@ public interface VideoListView extends BaseView<List<VideoItem>> {
     void showProgress();
 
     void hideProgress();
+
+    void showEditDialog(VideoItem videoItem);
 }

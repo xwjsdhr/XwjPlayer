@@ -3,7 +3,12 @@ package com.xwj.xwjplayer.views.impl;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Build;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,6 +17,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.imagepipeline.core.ImagePipelineConfig;
@@ -26,7 +32,7 @@ import com.xwj.xwjplayer.views.VideoListView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class VideoListActivity extends AppCompatActivity implements VideoListView {
+public class VideoListActivity extends AppCompatActivity implements VideoListView, VideoHeaderListAdapter.OnItemLongClickListener {
 
 
     private static final float TOOLBAR_ELEVATION = 3.0f;
@@ -38,18 +44,19 @@ public class VideoListActivity extends AppCompatActivity implements VideoListVie
     private VideoListPresenter videoListPresenter;
     private Toolbar tToolbar;
 
+    private FragmentManager mFragmentManager;
+    private EditDialogFragment dialogFragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video_list);
-        ImagePipelineConfig config = ImagePipelineConfig.newBuilder(this)
-                .setDownsampleEnabled(true)
-                .build();
-        Fresco.initialize(this, config);
+
         videoItemList = new ArrayList<>();
-        //mVideoAdapter = new VideoAdapter(this, videoItemList);
         videoHeaderListAdapter = new VideoHeaderListAdapter(this, videoItemList);
         initViews();
+
+        mFragmentManager = this.getSupportFragmentManager();
         videoListPresenter = new VideoListPresenterImpl(this, this);
         videoListPresenter.onStart();
     }
@@ -124,11 +131,15 @@ public class VideoListActivity extends AppCompatActivity implements VideoListVie
             }
 
         });
+
         mRvVideoList.setLayoutManager(new LinearLayoutManager(this));
         mRvVideoList.setHasFixedSize(true);
         mRvVideoList.setAdapter(videoHeaderListAdapter);
+        videoHeaderListAdapter.setOnItemLongClickListener(this);
+
 
     }
+
 
     @Override
     public void bindViews(List<VideoItem> videoItems) {
@@ -146,6 +157,26 @@ public class VideoListActivity extends AppCompatActivity implements VideoListVie
     public void hideProgress() {
         mRvVideoList.setVisibility(View.VISIBLE);
         mProgressBar.setVisibility(View.GONE);
+    }
+
+    //显示编辑对话框
+    @Override
+    public void showEditDialog(VideoItem videoItem) {
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("video_item", videoItem);
+        dialogFragment = EditDialogFragment.newInstance(bundle);
+        dialogFragment.setOnDialogDeleteListener(new EditDialogFragment.OnDialogDeleteListener() {
+            @Override
+            public void onVideoItemDelete(EditDialogFragment editDialogFragment, VideoItem videoItem) {
+                Toast.makeText(VideoListActivity.this, videoItem.getDataUrl(), Toast.LENGTH_SHORT).show();
+                int i = videoItemList.indexOf(videoItem);
+                videoItemList.remove(i);
+                videoHeaderListAdapter.notifyItemRemoved(i);
+                editDialogFragment.dismiss();
+
+            }
+        });
+        dialogFragment.show(mFragmentManager, EditDialogFragment.class.getSimpleName());
     }
 
     @Override
@@ -185,4 +216,10 @@ public class VideoListActivity extends AppCompatActivity implements VideoListVie
                     }
                 });
     }
+
+    @Override
+    public void onItemLongClick(VideoItem videoItem) {
+        videoListPresenter.onItemLongClick(videoItem);
+    }
+
 }

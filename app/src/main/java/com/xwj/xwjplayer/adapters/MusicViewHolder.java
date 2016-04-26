@@ -50,15 +50,17 @@ public class MusicViewHolder extends RecyclerView.ViewHolder implements View.OnC
     @Override
     public void onClick(View v) {
         if (mMusicItem != null) {
-            play(mMusicItem.getData());
+            play(mMusicItem);
         }
     }
 
     @Override
-    public void play(String musicPath) {
+    public void play(MusicItem musicItem) {
         Intent intent = new Intent(mContext, MusicService.class);
         intent.putExtra(Constant.ACTION_PLAY_PAUSE, Constant.ACTION_MUSIC_PLAY);
-        intent.putExtra(Constant.MUSIC_DATA, musicPath);
+        intent.putExtra(Constant.MUSIC_DATA, musicItem.getData());
+        intent.putExtra(Constant.MUSIC_ITEM, musicItem);
+        musicItem.setPlaying(true);
         mContext.startService(intent);
         mMusicListView.bindBottomView(mMusicItem);
         mMusicListView.setPauseIcon();

@@ -42,20 +42,19 @@ import java.util.Objects;
 /**
  * Created by xiaweijia on 16/3/23.
  */
-public class VideoHeaderListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class VideoHeaderListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements View.OnLongClickListener {
 
     private static final int HEADER_LAYOUT = 1;
     private static final int ITEM_LAYOUT = 2;
     private Context mContext;
     private LayoutInflater mInflater;
     private List<VideoItem> mList;
+    private OnItemLongClickListener onItemLongClickListener;
 
     public VideoHeaderListAdapter(Context context, List<VideoItem> list) {
         mContext = context;
         mInflater = LayoutInflater.from(context);
         mList = list;
-
-
     }
 
     @Override
@@ -88,6 +87,8 @@ public class VideoHeaderListAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
                 String dataUrl = mList.get(position).getDataUrl();
                 ((ListViewHolder) holder).mIvThumbnail.setImageURI(Uri.fromFile(new File(dataUrl)));
+                ((ListViewHolder) holder).itemView.setTag(((ListViewHolder) holder).mVideoItem);
+                ((ListViewHolder) holder).itemView.setOnLongClickListener(this);
             }
         }
     }
@@ -104,6 +105,15 @@ public class VideoHeaderListAdapter extends RecyclerView.Adapter<RecyclerView.Vi
     @Override
     public int getItemCount() {
         return mList.size();
+    }
+
+    @Override
+    public boolean onLongClick(View v) {
+        if (onItemLongClickListener != null) {
+            VideoItem videoItem = (VideoItem) v.getTag();
+            onItemLongClickListener.onItemLongClick(videoItem);
+        }
+        return true;
     }
 
     static class HeaderViewHolder extends RecyclerView.ViewHolder {
@@ -147,5 +157,13 @@ public class VideoHeaderListAdapter extends RecyclerView.Adapter<RecyclerView.Vi
                 mContext.startActivity(intent);
             }
         }
+    }
+
+    public interface OnItemLongClickListener {
+        void onItemLongClick(VideoItem videoItem);
+    }
+
+    public void setOnItemLongClickListener(OnItemLongClickListener itemLongClickListener) {
+        this.onItemLongClickListener = itemLongClickListener;
     }
 }

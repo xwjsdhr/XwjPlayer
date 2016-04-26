@@ -15,4 +15,7 @@ interface IMusicService {
     void next();
     int getCurrentDuration();
     int getDuration();
+    void setCurrentProgress(int currentProgress);
+    String getCurrPlaySongName();
+    String getCurrPlayArtist();
 }

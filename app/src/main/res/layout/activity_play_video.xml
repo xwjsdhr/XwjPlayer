@@ -11,4 +11,86 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/ll_video_play_top_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/ColorVideoPlayBar"
+            android:orientation="horizontal"
+            android:padding="15dp">
+
+            <TextView
+                android:id="@+id/tv_video_play_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/video_name"
+                android:textColor="@color/ColorWhite" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/ll_center_panel"
+            android:layout_below="@+id/ll_video_play_top_bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/ll_bottom_bar"/>
+
+        <LinearLayout
+            android:id="@+id/ll_bottom_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/ColorVideoPlayBar"
+            android:orientation="vertical">
+
+            <SeekBar
+                android:id="@+id/sb_video_duration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp" />
+
+            <RelativeLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="15dp"
+                android:paddingTop="10dp">
+
+                <ImageButton
+                    android:id="@+id/ib_video_play_pre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_toStartOf="@+id/ib_video_play_toggle"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_skip_previous_white_36dp" />
+
+                <ImageButton
+                    android:id="@+id/ib_video_play_toggle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_play_circle_outline_white_36dp" />
+
+                <ImageButton
+                    android:id="@+id/ib_video_play_next"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_toEndOf="@+id/ib_video_play_toggle"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_skip_next_white_36dp" />
+            </RelativeLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
 </RelativeLayout>

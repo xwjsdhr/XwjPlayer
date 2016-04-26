@@ -2,6 +2,7 @@ package com.xwj.xwjplayer.presenters.impl;
 
 import android.content.Context;
 import android.view.View;
+import android.widget.Toast;
 
 import com.xwj.xwjplayer.R;
 import com.xwj.xwjplayer.presenters.MainPresenter;
@@ -25,17 +26,23 @@ public class MainPresenterImpl implements MainPresenter {
     public void onClick(View view) {
         int id = view.getId();
         switch (id) {
-            case R.id.ib_video_list:
-                mMainView.startActivity(VideoListActivity.class);
-                break;
-            case R.id.ib_music_list:
+//            case R.id.rl_main_video_list:
+//                mMainView.startActivity(VideoListActivity.class);
+//                break;
+//            case R.id.rl_main_music_list:
+//                mMainView.startActivity(MusicListActivity.class);
+//                break;
+            case R.id.cv_main_music_list:
                 mMainView.startActivity(MusicListActivity.class);
+                break;
+            case R.id.cv_main_video_list:
+                mMainView.startActivity(VideoListActivity.class);
                 break;
         }
     }
 
     @Override
     public void onDestroy() {
-        
+
     }
 }

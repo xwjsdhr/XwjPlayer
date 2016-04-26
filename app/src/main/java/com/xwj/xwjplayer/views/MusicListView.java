@@ -28,4 +28,9 @@ public interface MusicListView extends BaseView<List<MusicItem>> {
     void setStartIcon();
 
     void setDuration(int duration);
+
+    void setCurrSongName(String currSongName);
+
+    void setCurrArtist(String currArtist);
+
 }

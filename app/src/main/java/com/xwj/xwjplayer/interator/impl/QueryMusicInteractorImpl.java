@@ -71,12 +71,10 @@ public class QueryMusicInteractorImpl implements QueryMusicInteractor {
                     musicItem.setSize(size);
                     musicItem.setArtist(artist);
                     musicItem.setSongName(songName);
-                    musicItem.setAlbumId(albumId);
 
                     Uri albumUri = Uri.parse("content://media/external/audio/albumart");
                     Uri albumArtUri = ContentUris.withAppendedId(albumUri, albumId);
 
-                    musicItem.setAlbumPath(albumArtUri);
                     list.add(musicItem);
                 }
                 cursor.close();

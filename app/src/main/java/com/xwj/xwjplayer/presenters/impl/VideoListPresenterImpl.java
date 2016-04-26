@@ -51,4 +51,9 @@ public class VideoListPresenterImpl implements VideoListPresenter {
         queryVideoInteractor.stop();
     }
 
+    @Override
+    public void onItemLongClick(VideoItem videoItem) {
+        mVideoListView.showEditDialog(videoItem);
+    }
+
 }

@@ -14,6 +14,7 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 
 import com.xwj.xwjplayer.IMusicService;
+import com.xwj.xwjplayer.entitys.MusicItem;
 import com.xwj.xwjplayer.utils.Constant;
 
 import java.io.BufferedReader;
@@ -28,6 +29,8 @@ public class MusicService extends Service implements IMusicService, MediaPlayer.
     private static final String TAG = MusicService.class.getSimpleName();
     private static final int ACTION_START = 1;
     private static final int ACTION_PAUSE = 2;
+
+    private MusicItem mMusicItem;
 
     private MediaPlayer mediaPlayer;
     private String mCurrentMusicPath = null;
@@ -68,6 +71,7 @@ public class MusicService extends Service implements IMusicService, MediaPlayer.
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        mMusicItem = (MusicItem) intent.getSerializableExtra(Constant.MUSIC_ITEM);
         Log.e(TAG, "onStartCommand: ");
         if (Constant.ACTION_MUSIC_PLAY == intent.getIntExtra(Constant.ACTION_PLAY_PAUSE, 0)) {
             if (intent.getStringExtra(Constant.MUSIC_DATA) != null) {
@@ -173,6 +177,30 @@ public class MusicService extends Service implements IMusicService, MediaPlayer.
             public int getDuration() throws RemoteException {
                 return MusicService.this.getDuration();
             }
+
+            @Override
+            public void setCurrentProgress(int currentProgress) throws RemoteException {
+                mediaPlayer.seekTo(currentProgress);
+            }
+
+            @Override
+            public String getCurrPlaySongName() throws RemoteException {
+                if (mMusicItem != null) {
+                    return mMusicItem.getSongName();
+                } else {
+                    return "";
+                }
+
+            }
+
+            @Override
+            public String getCurrPlayArtist() throws RemoteException {
+                if (mMusicItem != null) {
+                    return mMusicItem.getArtist();
+                } else {
+                    return "";
+                }
+            }
         };
     }
 
@@ -249,6 +277,30 @@ public class MusicService extends Service implements IMusicService, MediaPlayer.
     }
 
     @Override
+    public void setCurrentProgress(int currentProgress) throws RemoteException {
+        mediaPlayer.seekTo(currentProgress);
+    }
+
+    @Override
+    public String getCurrPlaySongName() throws RemoteException {
+        if (mMusicItem != null) {
+            return mMusicItem.getSongName();
+        } else {
+            return "";
+        }
+    }
+
+    @Override
+    public String getCurrPlayArtist() throws RemoteException {
+        if (mMusicItem != null) {
+            return mMusicItem.getArtist();
+        } else {
+            return "";
+        }
+    }
+
+
+    @Override
     public IBinder asBinder() {
         return new Stub() {
             @Override
@@ -289,6 +341,29 @@ public class MusicService extends Service implements IMusicService, MediaPlayer.
             @Override
             public int getDuration() throws RemoteException {
                 return MusicService.this.getDuration();
+            }
+
+            @Override
+            public void setCurrentProgress(int currentProgress) throws RemoteException {
+                mediaPlayer.seekTo(currentProgress);
+            }
+
+            @Override
+            public String getCurrPlaySongName() throws RemoteException {
+                if (mMusicItem != null) {
+                    return mMusicItem.getSongName();
+                } else {
+                    return "";
+                }
+            }
+
+            @Override
+            public String getCurrPlayArtist() throws RemoteException {
+                if (mMusicItem != null) {
+                    return mMusicItem.getArtist();
+                } else {
+                    return "";
+                }
             }
         };
     }

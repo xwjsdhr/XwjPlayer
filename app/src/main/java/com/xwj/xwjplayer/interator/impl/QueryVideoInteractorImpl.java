@@ -55,7 +55,6 @@ public class QueryVideoInteractorImpl implements QueryVideoInteractor {
                 Cursor cursor = mContext.getContentResolver()
                         .query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, projection, null,
                                 null, null);
-                Log.e(TAG, "" + cursor.getCount());
                 while (cursor.moveToNext()) {
                     if (Thread.interrupted()) {
                         return;
@@ -65,8 +64,6 @@ public class QueryVideoInteractorImpl implements QueryVideoInteractor {
                     long duration = cursor.getLong(1);
                     long size = cursor.getLong(2);
                     String data = cursor.getString(3);
-                    //mediaMetadataRetriever.setDataSource(data);
-                    //Bitmap thumbnail = mediaMetadataRetriever.getFrameAtTime(5);
                     Character initialOfVideoName = !Pinyin.isChinese(videoName.charAt(0)) ? Character.toUpperCase(videoName.charAt(0))
                             : Pinyin.toPinyin(videoName.charAt(0)).charAt(0);
 
@@ -75,10 +72,7 @@ public class QueryVideoInteractorImpl implements QueryVideoInteractor {
                     videoItem.setVideoDuration(duration);
                     videoItem.setSize(size);
                     videoItem.setDataUrl(data);
-                    //videoItem.setThumbnail(thumbnail);
-
                     list.add(videoItem);
-                    Log.e(TAG, "run: " + initialOfVideoName);
                 }
 
                 cursor.close();
@@ -118,7 +112,6 @@ public class QueryVideoInteractorImpl implements QueryVideoInteractor {
                     long duration = item.getVideoDuration();
                     long size = item.getSize();
                     String data = item.getDataUrl();
-                    //Bitmap thumbnail = item.getThumbnail();
 
                     if (mLastIntial == null || !mLastIntial.equals(initialOfVideoName)) {
                         mLastIntial = initialOfVideoName;
@@ -135,10 +128,8 @@ public class QueryVideoInteractorImpl implements QueryVideoInteractor {
                     videoItem.setVideoDuration(duration);
                     videoItem.setSize(size);
                     videoItem.setDataUrl(data);
-                    //videoItem.setThumbnail(thumbnail);
                     listRes.add(videoItem);
                 }
-
                 list = null;
                 mHandler.post(new Runnable() {
                     @Override

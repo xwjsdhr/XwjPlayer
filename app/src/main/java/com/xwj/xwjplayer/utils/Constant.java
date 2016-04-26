@@ -12,4 +12,7 @@ public class Constant {
     public static final String ACTION_PLAY_PAUSE = "ACTION_PLAY_PAUSE";
     public static final int ACTION_MUSIC_PLAY = 0;
     public static final int ACTION_MUSIC_PAUSE = 1;
+    public static final String MUSIC_SONG_NAME = "MUSIC_SONG_NAME";
+    public static final String MUSIC_ARTIST = "MUSIC_ARTIST";
+    public static final String MUSIC_ITEM = "MUSIC_ITEM";
 }

@@ -8,8 +8,11 @@ import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.os.RemoteException;
+import android.support.v4.app.NavUtils;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.SeekBar;
 import android.widget.Toast;
 
 import com.xwj.xwjplayer.IMusicService;
@@ -47,6 +50,15 @@ public class MusicListPresenterImpl implements MusicListPresenter {
                 musicService = IMusicService.Stub.asInterface(service);
                 try {
                     musicListView.setDuration(musicService.getDuration());
+                    if (musicService != null) {
+                        String currPlaySongName = musicService.getCurrPlaySongName();
+                        String currPlayArtist = musicService.getCurrPlayArtist();
+
+                        if (!TextUtils.isEmpty(currPlayArtist) && !TextUtils.isEmpty(currPlaySongName)) {
+                            musicListView.setCurrSongName(currPlaySongName);
+                            musicListView.setCurrArtist(currPlayArtist);
+                        }
+                    }
                 } catch (RemoteException e) {
                     e.printStackTrace();
                 }
@@ -90,6 +102,7 @@ public class MusicListPresenterImpl implements MusicListPresenter {
             }
         });
 
+
     }
 
     @Override
@@ -114,6 +127,17 @@ public class MusicListPresenterImpl implements MusicListPresenter {
                 break;
             default:
                 break;
+        }
+    }
+
+    @Override
+    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+        if (fromUser) {
+            try {
+                musicService.setCurrentProgress(progress);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
         }
     }
 

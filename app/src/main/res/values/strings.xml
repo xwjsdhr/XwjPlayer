@@ -6,6 +6,11 @@
     <string name="song_name">歌曲名称</string>
     <string name="artist">艺术家</string>
     <string name="duration">持续时间</string>
+    <string name="text_music">音频文件</string>
+    <string name="text_video">视频文件</string>
+    <string name="tv_text_delete">删除</string>
+    <string name="tv_text_play">播放</string>
+    <string name="video_name">视频名称</string>
 
     <style name="description">Media Controls</style>
 </resources>

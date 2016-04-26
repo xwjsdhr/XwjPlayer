@@ -11,6 +11,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
@@ -33,18 +35,19 @@ import java.util.List;
  * 音乐列表界面
  * Created by xiaweijia on 16/3/16.
  */
-public class MusicListActivity extends AppCompatActivity implements MusicListView, View.OnClickListener {
+public class MusicListActivity extends AppCompatActivity implements MusicListView, View.OnClickListener, SeekBar.OnSeekBarChangeListener {
     private static final String TAG = MusicListActivity.class.getSimpleName();
     private RecyclerView mRvMusicList;
     private List<MusicItem> list = new ArrayList<>();
     private MusicAdapter musicAdapter;
     private MusicListPresenter musicListPresenter;
-    private ProgressDialog progressDialog;
+    //private ProgressDialog progressDialog;
 
     private SlidingUpPanelLayout mSlidingUpPanelLayout;
     private AppCompatSeekBar mAppCompatSeekBar;
     private TextView mTvCurrSongName, mTvArtistName;
     private AppCompatImageButton mIbPlayOrPause;
+    private ProgressBar mPbMusic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,9 +76,12 @@ public class MusicListActivity extends AppCompatActivity implements MusicListVie
         mTvCurrSongName = (TextView) this.findViewById(R.id.tv_song_name);
         mIbPlayOrPause = (AppCompatImageButton) this.findViewById(R.id.ib_music_play_or_pause);
         mTvArtistName = (TextView) this.findViewById(R.id.tv_artist_name);
+        mPbMusic = (ProgressBar) this.findViewById(R.id.progress_music);
+
         mSlidingUpPanelLayout.setTouchEnabled(true);
         mRvMusicList.setLayoutManager(new LinearLayoutManager(this));
         mRvMusicList.setHasFixedSize(true);
+        mAppCompatSeekBar.setOnSeekBarChangeListener(this);
         mIbPlayOrPause.setOnClickListener(this);
     }
 
@@ -88,15 +94,19 @@ public class MusicListActivity extends AppCompatActivity implements MusicListVie
 
     @Override
     public void showProgress() {
-        progressDialog = new ProgressDialog(this, R.style.progressDialogStyle);
-        progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-        progressDialog.setTitle("");
-        progressDialog.show();
+//        progressDialog = new ProgressDialog(this, R.style.progressDialogStyle);
+//        progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+//        progressDialog.setTitle("");
+//        progressDialog.show();
+        mRvMusicList.setVisibility(View.GONE);
+        mPbMusic.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideProgress() {
-        progressDialog.dismiss();
+//        progressDialog.dismiss();
+        mRvMusicList.setVisibility(View.VISIBLE);
+        mPbMusic.setVisibility(View.GONE);
     }
 
     @Override
@@ -148,6 +158,15 @@ public class MusicListActivity extends AppCompatActivity implements MusicListVie
         mAppCompatSeekBar.setMax(duration);
     }
 
+    @Override
+    public void setCurrSongName(String currSongName) {
+        mTvCurrSongName.setText(currSongName);
+    }
+
+    @Override
+    public void setCurrArtist(String currArtist) {
+        mTvArtistName.setText(currArtist);
+    }
 
     @Override
     protected void onDestroy() {
@@ -158,5 +177,20 @@ public class MusicListActivity extends AppCompatActivity implements MusicListVie
     @Override
     public void onClick(View v) {
         musicListPresenter.onClick(v);
+    }
+
+    @Override
+    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+        musicListPresenter.onProgressChanged(seekBar, progress, fromUser);
+    }
+
+    @Override
+    public void onStartTrackingTouch(SeekBar seekBar) {
+
+    }
+
+    @Override
+    public void onStopTrackingTouch(SeekBar seekBar) {
+
     }
 }
