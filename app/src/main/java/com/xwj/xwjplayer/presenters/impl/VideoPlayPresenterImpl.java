@@ -22,6 +22,7 @@ import com.xwj.xwjplayer.views.VideoPlayView;
 public class VideoPlayPresenterImpl implements VideoPlayPresenter {
 
     private static final String TAG = VideoPlayPresenterImpl.class.getSimpleName();
+    private static final int ACTION_HIDE_BAR = 3;
     private Context mContext;
     private AudioManager mAudioManager;
     private VideoPlayView mVideoPlayView;
@@ -44,6 +45,10 @@ public class VideoPlayPresenterImpl implements VideoPlayPresenter {
                     break;
                 case ACTION_STOP_SEEKING:
                     handler.removeCallbacksAndMessages(null);
+                    break;
+                case ACTION_HIDE_BAR:
+                    mVideoPlayView.hideTopBar();
+                    mVideoPlayView.hideBottomBar();
                     break;
 
             }
@@ -87,9 +92,11 @@ public class VideoPlayPresenterImpl implements VideoPlayPresenter {
                 if (mVideoPlayView.isBarShown()) {
                     mVideoPlayView.hideBottomBar();
                     mVideoPlayView.hideTopBar();
+
                 } else {
                     mVideoPlayView.showBottomBar();
                     mVideoPlayView.showTopBar();
+                    handler.sendEmptyMessageDelayed(ACTION_HIDE_BAR, 3000);
                 }
                 break;
         }

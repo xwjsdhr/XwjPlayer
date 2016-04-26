@@ -38,7 +38,6 @@ public class VideoPlayActivity extends AppCompatActivity implements VideoPlayVie
     private LinearLayout mLlCenterPanel;
     private LinearLayout mLlTopBar, mLlBottomBar;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
