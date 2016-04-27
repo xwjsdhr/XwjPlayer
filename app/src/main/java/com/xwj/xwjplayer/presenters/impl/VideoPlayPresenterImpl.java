@@ -38,7 +38,7 @@ public class VideoPlayPresenterImpl implements VideoPlayPresenter {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case ACTION_START_SEEKING:
-                    mVideoPlayView.startSeeking(mVideoPlayView.getProgress());
+                    mVideoPlayView.startSeeking(mVideoPlayView.getProgress()+1000);
                     Log.e(TAG, mVideoPlayView.getProgress() + "");
                     Log.e(TAG, mVideoPlayView.getDuration() + "");
                     handler.sendEmptyMessageDelayed(ACTION_START_SEEKING, 1000);
